@@ -210,10 +210,7 @@ function calculateStatEquivalence() {
     var totalChangePerPct = mainStatPerPct + secondStatPerPct;
     if (useTertiary)
         totalChangePerPct = totalChangePerPct + thirdStatPerPct;
-    var totalStatPerStat = mainStatPerStat + secondStatPerStat * fsPerSecondStat;
-    if (useTertiary)
-        totalStatPerStat += thirdStatPerStat * fsPerThirdStat;
-    var fsPerAllStat = totalChangePerPct / totalStatPerStat;
+    var fsPerAllStat = totalChangePerPct / mainStatPerStat;
     
     // Descriptive section
     outputStr += "Based on your entered values:</b>";
