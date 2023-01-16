@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <script src="content.js"></script>
+    <head>
+        <link rel="stylesheet" href="styles.css">
+        <title>Flame score estimator</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>
+            This is a quick tool to <b>estimate</b> how much flame score one 
+            (magic) attack and 1% all stats is equivalent to for <i>most</i> 
+            classes in MapleStory.
+            <br>
+            One flame score is defined to be 1 point in your class main stat.
+            <br>
+            Note: This tool does not work for Xenons or Demon Avengers.
+            <br>
+            Once again, this tool provides a <i>rough estimate</i>. Please use 
+            a stat calculator for more accurate numbers.
+        </div>
+        <br>
+        <div>
+            To begin, please select your class group below.
+        </div>
+        <select name="classGroups" id="classGroups" onchange="fillContent()">
+            <option value="none">Select a class group</option>
+            <option value="str">Warrior (except Demon Avenger)</option>
+            <option value="dex">Archer</option>
+            <option value="int">Magician</option>
+            <option value="luk1">Shadower, Dual Blade, Cadena</option>
+            <option value="luk2">Other thief (except Xenon)</option>
+            <option value="str1">Pirate (STR) (except Xenon)</option>
+            <option value="dex1">Pirate (DEX) (except Xenon)</option>
+        </select>
+        <br>
+        <p id="inputContent"></p>
+        <p id="outputContent"></p>
+    </body>
+</html>
