@@ -68,26 +68,26 @@ Potion (available in NPC potion shops).<br>";
     
     // Stat boosted section
     inputBody += "<img src=\"images/apple.png\" alt=\"Stat potion\"><br>";
-    inputBody += "Now, please use your attack boosting consumable";
+    inputBody += "Now, please use your stat boosting consumable";
     inputBody += "<br>";
     
     inputBody += "<label for=\"mainStatValBoosted\">Enter your total " + mainStat + ":</label>";
     inputBody += "<br><input type=\"number\" id=\"mainStatValBoosted\" name=\"Boosted Main Stat\">";
     inputBody += "<br>";
-    inputBody += "<label for=\"mainStatBoostAmt\">The potion boosts " + mainStat + "(in the item description) by:</label>";
+    inputBody += "<label for=\"mainStatBoostAmt\">The potion boosts " + mainStat + " (in the item description) by:</label>";
     inputBody += "<br><input type=\"number\" id=\"mainStatBoostAmt\" name=\"Main Stat Boost Amount\">";
     inputBody += "<br>";
     inputBody += "<label for=\"secondStatValBoosted\">Enter your total " + secondStat + ":</label>";
     inputBody += "<br><input type=\"number\" id=\"secondStatValBoosted\" name=\"Boosted Secondary Stat\">";
     inputBody += "<br>";
-    inputBody += "<label for=\"secondStatBoostAmt\">The potion boosts " + secondStat + "(in the item description) by:</label>";
+    inputBody += "<label for=\"secondStatBoostAmt\">The potion boosts " + secondStat + " (in the item description) by:</label>";
     inputBody += "<br><input type=\"number\" id=\"secondStatBoostAmt\" name=\"Secondary Stat Boost Amount\">";
     inputBody += "<br>";
     if (useTertiary) {
         inputBody += "<label for=\"thirdStatValBoosted\">Enter your total " + thirdStat + ":</label>";
         inputBody += "<br><input type=\"number\" id=\"thirdStatValBoosted\" name=\"Boosted other Secondary Stat\">";
         inputBody += "<br>";
-        inputBody += "<label for=\"thirdStatBoostAmt\">The potion boosts " + thirdStat + "(in the item description) by:</label>";
+        inputBody += "<label for=\"thirdStatBoostAmt\">The potion boosts " + thirdStat + " (in the item description) by:</label>";
         inputBody += "<br><input type=\"number\" id=\"thirdStatBoostAmt\" name=\"Other Secondary Stat Boost Amount\">";
         inputBody += "<br>";
     }
