@@ -202,14 +202,14 @@ function calculateStatEquivalence() {
     var fsPerThirdStat;
     if (useTertiary)
         fsPerThirdStat = (thirdStatPerStat / mainStatPerStat / 4);
-    var totalScoreStatBoosted = mainStatIncr + secondStatIncr * fsPerSecondStat;
+    var totalScoreStatBoosted = parseFloat(mainStatIncr) + parseFloat(secondStatIncr * fsPerSecondStat);
     if (useTertiary)
-        totalScoreStatBoosted += thirdStatIncr * fsPerThirdStat;
-    var dmgPerScore = (statBoostedDmg - upperDmg) / totalScoreStatBoosted * mainStatPerStat;
+        totalScoreStatBoosted += parseFloat(thirdStatIncr * fsPerThirdStat);
+    var dmgPerScore = parseFloat((statBoostedDmg - upperDmg) / totalScoreStatBoosted);
     var fsPerAtt = upperDmgPerAtt / dmgPerScore;
-    var totalChangePerPct = mainStatPerPct + secondStatPerPct;
+    var totalChangePerPct = parseFloat(mainStatPerPct) + parseFloat(secondStatPerPct * fsPerSecondStat);
     if (useTertiary)
-        totalChangePerPct = totalChangePerPct + thirdStatPerPct;
+        totalChangePerPct = parseFloat(totalChangePerPct) + parseFloat(thirdStatPerPct * fsPerThirdStat);
     var fsPerAllStat = totalChangePerPct / mainStatPerStat;
     
     // Descriptive section
@@ -219,6 +219,7 @@ function calculateStatEquivalence() {
     if (useTertiary)
         outputStr += "<br>1 point in " + thirdStat + " increases your " + thirdStat + " by " + thirdStatPerStat.toFixed(4);
     outputStr += "<br>1 " + (useMagic ? "magic" : "weapon") + " attack increases damage range by " + upperDmgPerAtt.toFixed(2);
+    outputStr += "<br>Your stat boost potion gave the equivalent of about " + totalScoreStatBoosted + " main stat and increased your damage range by " + (statBoostedDmg - upperDmg).toFixed(2);
     outputStr += "<br>1% all stats increases your " + mainStat + " by " + mainStatPerPct.toFixed(4);
     outputStr += " and " + secondStat + " by " + secondStatPerPct.toFixed(4);
     if (useTertiary)
