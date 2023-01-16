@@ -47,7 +47,7 @@ Please prepare any multiple stat boosting potion, such as Candied Apple \
 (available in Showa Town market), and a " + (useMagic ? "magic" : "weapon") + "\
  attack boosting potion, such as " + (useMagic ? "Magic" : "Warrior") + " \
 Potion (available in NPC potion shops).<br>";
-    inputBody += "<br><b>Note: Please remove Xenon link skill if you currently use it!</b><br>";
+    inputBody += "<h3><b>Note: Please remove Xenon link skill if you currently use it!</b></h3>";
     // Clean damage section
     inputBody += "<img src=\"images/stats.png\" alt=\"Stats\"><br>";
     inputBody += "<img src=\"images/damage.png\" alt=\"Damage\"><br>";
@@ -68,7 +68,7 @@ Potion (available in NPC potion shops).<br>";
     
     // Stat boosted section
     inputBody += "<img src=\"images/apple.png\" alt=\"Stat potion\"><br>";
-    inputBody += "Now, please use your stat boosting consumable";
+    inputBody += "Next, please use your stat boosting consumable";
     inputBody += "<br>";
     
     inputBody += "<label for=\"mainStatValBoosted\">Enter your total " + mainStat + ":</label>";
@@ -97,8 +97,9 @@ Potion (available in NPC potion shops).<br>";
     inputBody += "<br><br>";
     
     // Potion boosted section
+    inputBody += "Now, please <b>remove</b> the stat boosting consumable above<br>";
     inputBody += "<img src=\"images/potion.png\" alt=\"Attack potion\"><br>";
-    inputBody += "Now, please use your attack boosting consumable";
+    inputBody += "Then, please use your attack boosting consumable";
     inputBody += "<br>";
     
     inputBody += "<label for=\"upperDmgBoosted\">Enter your upper damage range:</label>";
