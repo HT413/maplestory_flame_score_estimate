@@ -197,7 +197,7 @@ function calculateStatEquivalence() {
         var thirdStatPerPct = (thirdStatLink - thirdStatAmt) / pctAmt;
     }
     
-    // Other calculations
+    // Other calculations -- parseFloat where necessary since js doesn't play nice with string/float
     var statBoostedDmg = document.getElementById("upperDmgStatBoosted").value;
     var fsPerSecondStat = (secondStatPerStat / mainStatPerStat / 4);
     var fsPerThirdStat;
@@ -208,9 +208,10 @@ function calculateStatEquivalence() {
         totalScoreStatBoosted += parseFloat(thirdStatIncr * fsPerThirdStat);
     var dmgPerScore = parseFloat((statBoostedDmg - upperDmg) / totalScoreStatBoosted);
     var fsPerAtt = upperDmgPerAtt / dmgPerScore;
-    var totalChangePerPct = parseFloat(mainStatPerPct) + parseFloat(secondStatPerPct * fsPerSecondStat);
+    // Calculate how much main stat 1% all stat is roughly worth
+    var totalChangePerPct = parseFloat(mainStatPerPct) + parseFloat(secondStatPerPct / 4);
     if (useTertiary)
-        totalChangePerPct = parseFloat(totalChangePerPct) + parseFloat(thirdStatPerPct * fsPerThirdStat);
+        totalChangePerPct = parseFloat(totalChangePerPct) + parseFloat(thirdStatPerPct / 4);
     var fsPerAllStat = totalChangePerPct / mainStatPerStat;
     
     // Descriptive section
@@ -221,10 +222,11 @@ function calculateStatEquivalence() {
         outputStr += "<br>1 point in " + thirdStat + " increases your " + thirdStat + " by " + thirdStatPerStat.toFixed(4);
     outputStr += "<br>1 " + (useMagic ? "magic" : "weapon") + " attack increases damage range by " + upperDmgPerAtt.toFixed(2);
     outputStr += "<br>Your stat boost potion gave the equivalent of about " + totalScoreStatBoosted.toFixed(4) + " main stat and increased your damage range by " + (statBoostedDmg - upperDmg);
-    outputStr += "<br>1% all stats increases your " + mainStat + " by " + mainStatPerPct.toFixed(1);
-    outputStr += " and " + secondStat + " by " + secondStatPerPct.toFixed(4);
+    outputStr += "<br>1% all stats increases your " + mainStat + " by " + mainStatPerPct.toFixed(2);
+    outputStr += " and " + secondStat + " by " + secondStatPerPct.toFixed(2);
     if (useTertiary)
-        outputStr += " and " + thirdStat + " by " + thirdStatPerPct.toFixed(4);
+        outputStr += " and " + thirdStat + " by " + thirdStatPerPct.toFixed(2);
+    outputStr +=  ", which is about " + totalChangePerPct.toFixed(3) + " worth of " + mainStat + " for the damage formula";
     
     // Conclusion
     outputStr += "<br><br><b>Secondary Stat Equivalence (estimated):</b>";
@@ -232,7 +234,7 @@ function calculateStatEquivalence() {
     if (useTertiary)
         outputStr += "<br>" + fsPerThirdStat.toFixed(4) + " flame score per " + thirdStat;
     outputStr += "<br>" + fsPerAtt.toFixed(4) + " flame score per " + (useMagic ? "magic" : "weapon") + " attack";
-    outputStr += "<br>" + fsPerAllStat.toFixed(4) + " flame score per %all stats";
+    outputStr += "<br>" + fsPerAllStat.toFixed(4) + " flame score per %All Stats";
 
     document.getElementById("outputContent").innerHTML = outputStr;
 }
